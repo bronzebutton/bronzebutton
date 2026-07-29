@@ -1509,7 +1509,7 @@ function bronzebutton_render_content_detail( $post_id ) {
  */
 function bronzebutton_append_content( $content ) {
 
-	static $rendered_posts = array();
+	static $rendered_posts = array '';
 
 	if (
 		is_admin() ||
