@@ -1,0 +1,1134 @@
+/*
+--------------------------------------------------
+Bronze Button v0.2
+content.css
+Part 3-1
+--------------------------------------------------
+*/
+
+:root{
+
+    --bb-max-width:1200px;
+
+    --bb-radius:16px;
+    --bb-radius-small:10px;
+
+    --bb-border:#e6e6e6;
+
+    --bb-bg:#ffffff;
+    --bb-bg-soft:#fafafa;
+
+    --bb-text:#202124;
+    --bb-text-light:#666666;
+
+    --bb-primary:#c48a33;
+    --bb-primary-dark:#9d6d24;
+
+    --bb-shadow:
+        0 6px 18px rgba(0,0,0,.06);
+
+    --bb-transition:
+        .25s ease;
+}
+
+
+/* -----------------------------------
+Reset
+----------------------------------- */
+
+.bb-content-wrapper *,
+.bb-content-wrapper *::before,
+.bb-content-wrapper *::after{
+
+    box-sizing:border-box;
+
+}
+
+.bb-content-wrapper img{
+
+    max-width:100%;
+    height:auto;
+    display:block;
+
+}
+
+.bb-content-wrapper a{
+
+    color:inherit;
+    text-decoration:none;
+
+}
+
+.bb-content-wrapper ul{
+
+    margin:0;
+    padding:0;
+    list-style:none;
+
+}
+
+.bb-content-wrapper{
+
+    width:100%;
+    max-width:var(--bb-max-width);
+
+    margin:70px auto;
+
+    color:var(--bb-text);
+
+    font-size:16px;
+    line-height:1.7;
+
+}
+
+
+/* -----------------------------------
+Section
+----------------------------------- */
+
+.bb-section{
+
+    margin-top:80px;
+
+}
+
+.bb-section:first-child{
+
+    margin-top:0;
+
+}
+
+
+/* -----------------------------------
+Section Heading
+----------------------------------- */
+
+.bb-section-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:28px;
+
+    gap:20px;
+
+}
+
+.bb-section-title{
+
+    margin:0;
+
+    font-size:34px;
+    font-weight:800;
+
+    line-height:1.25;
+
+}
+
+.bb-section-count{
+
+    font-size:15px;
+
+    color:var(--bb-text-light);
+
+}
+
+
+/* -----------------------------------
+Description
+----------------------------------- */
+
+.bb-short-description{
+
+    background:var(--bb-bg-soft);
+
+    border:1px solid var(--bb-border);
+
+    border-radius:var(--bb-radius);
+
+    padding:32px;
+
+    margin-bottom:60px;
+
+}
+
+.bb-short-description p{
+
+    margin:0;
+
+    font-size:19px;
+
+    line-height:1.8;
+
+}
+
+
+/* -----------------------------------
+Video Grid
+----------------------------------- */
+
+.bb-video-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(340px,1fr)
+        );
+
+    gap:30px;
+
+}
+
+
+/* -----------------------------------
+Video Card
+----------------------------------- */
+
+.bb-video-card{
+
+    background:var(--bb-bg);
+
+    border-radius:var(--bb-radius);
+
+    overflow:hidden;
+
+    border:1px solid var(--bb-border);
+
+    box-shadow:var(--bb-shadow);
+
+    transition:
+        transform var(--bb-transition),
+        box-shadow var(--bb-transition);
+
+}
+
+.bb-video-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,.08);
+
+}
+
+
+/* -----------------------------------
+Player
+----------------------------------- */
+
+.bb-video-player{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    overflow:hidden;
+
+    background:#000;
+
+}
+
+.bb-video-thumbnail-button{
+
+    width:100%;
+    height:100%;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+    cursor:pointer;
+
+    position:relative;
+
+}
+
+.bb-video-thumbnail{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .35s ease;
+
+}
+
+.bb-video-card:hover
+.bb-video-thumbnail{
+
+    transform:scale(1.05);
+
+}
+
+.bb-video-thumbnail-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.35)
+        );
+
+}
+
+.bb-play-button{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:76px;
+    height:76px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    transition:
+        var(--bb-transition);
+
+}
+
+.bb-video-card:hover
+.bb-play-button{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.08);
+
+}
+
+.bb-play-icon{
+
+    width:0;
+    height:0;
+
+    margin-left:5px;
+
+    border-top:13px solid transparent;
+    border-bottom:13px solid transparent;
+    border-left:22px solid #000;
+
+}
+
+
+/* -----------------------------------
+Video Body
+----------------------------------- */
+
+.bb-video-body{
+
+    padding:22px;
+
+}
+
+.bb-video-title{
+
+    margin:0 0 12px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+}
+
+.bb-video-title-link{
+
+    transition:color .2s ease;
+
+}
+
+.bb-video-title-link:hover{
+
+    color:var(--bb-primary);
+
+}
+
+.bb-video-description{
+
+    margin:0;
+
+    color:var(--bb-text-light);
+
+    font-size:16px;
+
+    line-height:1.7;
+
+}
+/*
+--------------------------------------------------
+Bronze Button v0.2
+content.css
+Part 3-2
+--------------------------------------------------
+*/
+
+
+/* -----------------------------------
+Related Content
+----------------------------------- */
+
+.bb-related-content-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(330px,1fr)
+        );
+
+    gap:28px;
+
+}
+
+.bb-related-content-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    border:1px solid var(--bb-border);
+
+    border-radius:var(--bb-radius);
+
+    box-shadow:var(--bb-shadow);
+
+    transition:
+        transform var(--bb-transition),
+        box-shadow var(--bb-transition);
+
+}
+
+.bb-related-content-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 14px 28px rgba(0,0,0,.08);
+
+}
+
+.bb-related-content-thumbnail{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    overflow:hidden;
+
+    background:#f3f3f3;
+
+}
+
+.bb-related-content-image{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .35s ease;
+
+}
+
+.bb-related-content-card:hover
+.bb-related-content-image{
+
+    transform:scale(1.05);
+
+}
+
+.bb-related-content-placeholder{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d7d7d7,
+            #efefef
+        );
+
+}
+
+.bb-related-content-placeholder-text{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#888;
+
+}
+
+.bb-related-content-body{
+
+    padding:22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+.bb-related-content-title{
+
+    margin:0 0 14px;
+
+    font-size:24px;
+
+    line-height:1.45;
+
+}
+
+.bb-related-content-title-link{
+
+    transition:color .2s ease;
+
+}
+
+.bb-related-content-title-link:hover{
+
+    color:var(--bb-primary);
+
+}
+
+.bb-related-content-description{
+
+    margin:0;
+
+    color:var(--bb-text-light);
+
+    line-height:1.8;
+
+    flex:1;
+
+}
+
+.bb-related-content-more{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:24px;
+
+    font-weight:700;
+
+    color:var(--bb-primary);
+
+}
+
+.bb-related-content-more-icon{
+
+    transition:
+        transform .25s ease;
+
+}
+
+.bb-related-content-card:hover
+.bb-related-content-more-icon{
+
+    transform:translateX(5px);
+
+}
+
+
+/* -----------------------------------
+Channel
+----------------------------------- */
+
+.bb-channel-list{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(280px,1fr)
+        );
+
+    gap:18px;
+
+}
+
+.bb-channel-item{
+
+    list-style:none;
+
+}
+
+.bb-channel-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:18px 22px;
+
+    border-radius:14px;
+
+    border:1px solid var(--bb-border);
+
+    background:#fff;
+
+    transition:
+        var(--bb-transition);
+
+}
+
+.bb-channel-link:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--bb-primary);
+
+}
+
+.bb-channel-link-disabled{
+
+    opacity:.7;
+
+    cursor:default;
+
+}
+
+.bb-channel-icon{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#ff0000;
+
+}
+
+.bb-channel-icon svg{
+
+    width:22px;
+
+    fill:#fff;
+
+}
+
+.bb-channel-name{
+
+    flex:1;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.bb-channel-external-icon{
+
+    color:#888;
+
+    font-size:18px;
+
+}
+
+
+/* -----------------------------------
+Tags
+----------------------------------- */
+
+.bb-tag-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.bb-tag-item{
+
+    list-style:none;
+
+}
+
+.bb-tag-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:
+
+        10px 18px;
+
+    border-radius:999px;
+
+    background:#f5f5f5;
+
+    border:1px solid #ececec;
+
+    font-size:15px;
+
+    transition:
+        var(--bb-transition);
+
+}
+
+.bb-tag-link:hover{
+
+    color:#fff;
+
+    background:var(--bb-primary);
+
+    border-color:var(--bb-primary);
+
+}
+
+
+/* -----------------------------------
+Common Button
+----------------------------------- */
+
+.bb-button{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:
+
+        13px 26px;
+
+    border-radius:999px;
+
+    background:var(--bb-primary);
+
+    color:#fff;
+
+    font-weight:700;
+
+    transition:
+        var(--bb-transition);
+
+}
+
+.bb-button:hover{
+
+    background:var(--bb-primary-dark);
+
+}
+
+
+/* -----------------------------------
+Screen Reader
+----------------------------------- */
+
+.bb-screen-reader-text{
+
+    position:absolute;
+
+    width:1px;
+    height:1px;
+
+    overflow:hidden;
+
+    clip:rect(1px,1px,1px,1px);
+
+    white-space:nowrap;
+
+}
+/*
+--------------------------------------------------
+Bronze Button v0.2
+content.css
+Part 3-3
+--------------------------------------------------
+*/
+
+
+/* -----------------------------------
+JavaScript Video Player
+----------------------------------- */
+
+.bb-video-player iframe{
+
+    width:100%;
+    height:100%;
+
+    border:0;
+
+    display:block;
+
+}
+
+
+/* -----------------------------------
+Loading
+----------------------------------- */
+
+.bb-loading{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.bb-loading::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0),
+            rgba(255,255,255,.45),
+            rgba(255,255,255,0)
+        );
+
+    animation:
+        bbLoading 1.3s infinite;
+
+}
+
+@keyframes bbLoading{
+
+    from{
+
+        transform:translateX(-100%);
+
+    }
+
+    to{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+
+/* -----------------------------------
+Fade
+----------------------------------- */
+
+.bb-fade-up{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
+
+}
+
+.bb-fade-up.is-visible{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+
+/* -----------------------------------
+Focus
+----------------------------------- */
+
+.bb-content-wrapper a:focus-visible,
+.bb-content-wrapper button:focus-visible{
+
+    outline:3px solid var(--bb-primary);
+
+    outline-offset:3px;
+
+}
+
+
+/* -----------------------------------
+Responsive
+----------------------------------- */
+
+@media (max-width:1200px){
+
+    .bb-content-wrapper{
+
+        padding:0 28px;
+
+    }
+
+}
+
+@media (max-width:991px){
+
+    .bb-section{
+
+        margin-top:60px;
+
+    }
+
+    .bb-section-title{
+
+        font-size:30px;
+
+    }
+
+    .bb-video-grid,
+    .bb-related-content-grid{
+
+        grid-template-columns:
+            repeat(
+                auto-fill,
+                minmax(280px,1fr)
+            );
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .bb-content-wrapper{
+
+        margin:45px auto;
+
+        padding:0 18px;
+
+    }
+
+    .bb-short-description{
+
+        padding:22px;
+
+    }
+
+    .bb-short-description p{
+
+        font-size:17px;
+
+    }
+
+    .bb-section-heading{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .bb-section-title{
+
+        font-size:26px;
+
+    }
+
+    .bb-video-grid,
+    .bb-related-content-grid,
+    .bb-channel-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .bb-video-body,
+    .bb-related-content-body{
+
+        padding:18px;
+
+    }
+
+    .bb-video-title,
+    .bb-related-content-title{
+
+        font-size:21px;
+
+    }
+
+    .bb-tag-list{
+
+        gap:10px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .bb-content-wrapper{
+
+        padding:0 14px;
+
+    }
+
+    .bb-short-description{
+
+        padding:18px;
+
+    }
+
+    .bb-short-description p{
+
+        font-size:16px;
+
+        line-height:1.7;
+
+    }
+
+    .bb-play-button{
+
+        width:62px;
+        height:62px;
+
+    }
+
+    .bb-play-icon{
+
+        border-top:11px solid transparent;
+        border-bottom:11px solid transparent;
+        border-left:18px solid #000;
+
+    }
+
+    .bb-video-title,
+    .bb-related-content-title{
+
+        font-size:19px;
+
+    }
+
+    .bb-channel-link{
+
+        padding:16px;
+
+    }
+
+}
+
+
+/* -----------------------------------
+Dark Mode
+----------------------------------- */
+
+@media (prefers-color-scheme:dark){
+
+    :root{
+
+        --bb-bg:#181818;
+        --bb-bg-soft:#232323;
+
+        --bb-border:#333;
+
+        --bb-text:#f2f2f2;
+        --bb-text-light:#bdbdbd;
+
+        --bb-shadow:
+            0 8px 24px rgba(0,0,0,.35);
+
+    }
+
+    .bb-tag-link{
+
+        background:#2b2b2b;
+
+    }
+
+    .bb-related-content-placeholder{
+
+        background:
+            linear-gradient(
+                135deg,
+                #444,
+                #303030
+            );
+
+    }
+
+}
+
+
+/* -----------------------------------
+Print
+----------------------------------- */
+
+@media print{
+
+    .bb-video-player,
+    .bb-play-button{
+
+        display:none;
+
+    }
+
+    .bb-content-wrapper{
+
+        max-width:100%;
+
+        margin:0;
+
+    }
+
+}
+
+
+/* -----------------------------------
+End
+----------------------------------- */
