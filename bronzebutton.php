@@ -1,9 +1,11 @@
 <?php
 /**
  * Plugin Name: Bronze Button
+ * Plugin URI: https://github.com/bronzebutton/bronzebutton
  * Description: 브론즈버튼 콘텐츠 상세페이지 기능을 관리하는 전용 플러그인입니다.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Bronze Button
+ * Text Domain: bronzebutton
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -11,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * 플러그인 기본 경로
+ * 플러그인 기본 정보
  */
-define( 'BRONZEBUTTON_VERSION', '0.1.0' );
+define( 'BRONZEBUTTON_VERSION', '0.2.0' );
 define( 'BRONZEBUTTON_FILE', __FILE__ );
 define( 'BRONZEBUTTON_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BRONZEBUTTON_URL', plugin_dir_url( __FILE__ ) );
@@ -49,6 +51,14 @@ function bronzebutton_enqueue_assets() {
 		array(),
 		BRONZEBUTTON_VERSION,
 		true
+	);
+
+	wp_localize_script(
+		'bronzebutton-content',
+		'BronzeButton',
+		array(
+			'embedBase' => 'https://www.youtube-nocookie.com/embed/',
+		)
 	);
 }
 
