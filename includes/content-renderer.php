@@ -1521,7 +1521,12 @@ function bronzebutton_append_content( $content ) {
 		return $content;
 	}
 
-	return $content . bronzebutton_render_content_detail(
+	/*
+	 * 콘텐츠 CPT 상세페이지에서는
+	 * 일반 워드프레스 본문을 출력하지 않고
+	 * 브론즈버튼 전용 레이아웃만 출력합니다.
+	 */
+	return bronzebutton_render_content_detail(
 		get_the_ID()
 	);
 }
