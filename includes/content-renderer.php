@@ -1509,6 +1509,8 @@ function bronzebutton_render_content_detail( $post_id ) {
  */
 function bronzebutton_append_content( $content ) {
 
+	static $rendered_posts = array();
+
 	if (
 		is_admin() ||
 		! is_main_query() ||
@@ -1520,6 +1522,23 @@ function bronzebutton_append_content( $content ) {
 	if ( ! bronzebutton_is_content_detail_page() ) {
 		return $content;
 	}
+
+	$post_id = get_the_ID();
+
+	/*
+	 * 같은 콘텐츠의 the_content 필터가
+	 * 테마에서 여러 번 호출되더라도 한 번만 출력합니다.
+	 */
+	if ( isset( $rendered_posts[ $post_id ] ) ) {
+		return '';
+	}
+
+	$rendered_posts[ $post_id ] = true;
+
+	return bronzebutton_render_content_detail(
+		$post_id
+	);
+}
 
 	/*
 	 * 콘텐츠 CPT 상세페이지에서는
