@@ -1456,9 +1456,14 @@ function bronzebutton_render_tags_section( $tags ) {
  */
 function bronzebutton_render_content_detail( $post_id ) {
 
-	$data = bronzebutton_get_content_detail_data( $post_id );
+    $data = bronzebutton_get_content_detail_data( $post_id );
 
-	ob_start();
+    echo '<pre style="background:#fff3cd;padding:15px;">';
+    echo '채널 개수: ' . count( $data['channels'] ) . "\n";
+    print_r( $data['channels'] );
+    echo '</pre>';
+
+    ob_start();
 	?>
 
 	<div class="bb-content-wrapper">
